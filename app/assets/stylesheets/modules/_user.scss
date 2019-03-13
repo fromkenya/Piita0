@@ -1,0 +1,53 @@
+@import 'variables';
+
+.form {
+  background-color: white;
+  color: $blue;
+  padding: 40px 0;
+  .form-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .form-body {
+    width: 30%;
+    margin: 0 auto;
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  input {
+    padding-left: 10px;
+    height: 28px;
+    width: 100%;
+    margin-bottom: 18px;
+    border: 1px solid $gray;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border-radius: 4px;
+  }
+  .submit-wrapper {
+    margin-top: 10px;
+    text-align: center;
+  }
+  input[type="submit"] {
+  height: 28px;
+  color: white;
+  background-color: $light-blue;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 20px;
+  &:hover {
+    background-color: $blue;
+  }
+  }
+}
+
+
+.form-error, .error-message {
+  text-align: center;
+  font-size: 13px;
+  color: $red;
+  p {
+    margin: 10px 0 15px 0;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="form users-new">
+  <div class="container">
+    <div class="form-heading">
+      <h1>Piitaへようこそ</h1>
+      <p>新規登録(無料)して利用を開始しましょう！</p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="form-body users-form">
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+
+       <div class="field">
+        <%= f.text_field :user_name, autofocus: true, placeholder: "ユーザ名" %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"%>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+      </div>
+
+      <div class="actions submit-wrapper">
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+  </div>
+</div>
+
+
+
+
+

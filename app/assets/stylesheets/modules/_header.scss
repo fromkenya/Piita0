@@ -1,0 +1,32 @@
+@import 'variables';
+
+header {
+  line-height: 40px;
+  height: 40px;
+  background-color: $blue;
+  overflow: hidden;
+}
+
+.header-logo a {
+  font-family: 'Poiret One', cursive;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  font-size: 28px;
+  float: left;
+}
+
+.header-menu  {
+  float: right;
+  li {
+    margin-right: 6px;
+    display: inline-block;
+  }
+  a {
+    color: white;
+    display: block;
+    padding: 0 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

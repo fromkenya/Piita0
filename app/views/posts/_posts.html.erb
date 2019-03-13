@@ -1,0 +1,16 @@
+<div class="post-item">
+  <div class="post-left">
+    <% if post.user.avatar.url %>
+    <%= image_tag post.user.avatar.url, size: "50x50" %>
+    <% end %>
+  </div>
+  <div class="post-right">
+      <div class="post-title">
+        <%= link_to post.title, post %>
+      </div>
+      <div class="post-below">
+        <p>by <%= link_to post.user.user_name, "/users/#{post.user_id}" %> いいね</p>
+      </div>
+  </div>
+</div>
+

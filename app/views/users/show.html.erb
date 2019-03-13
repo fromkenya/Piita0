@@ -1,0 +1,23 @@
+<div class="user">
+  <div class="container">
+    <img src="<%= "#" %>">
+    <%= @user.user_name %>
+    <% if user_signed_in? && @user.id == current_user.id %>
+    <%= link_to "編集", edit_user_registration_path %>
+    <% end %>
+  </div>
+</div>
+
+<div class="posts">
+  <div class="container">
+    <div class="index">
+      <% @posts.each do |post| %>
+        <%= render partial: '/posts/posts', locals: {post: post} %>
+      <% end %>
+    </div>
+     <div class="page">
+      <%= paginate(@posts) %>
+     </div>
+  </div>
+</div>
+

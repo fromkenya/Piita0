@@ -1,0 +1,125 @@
+@import 'variables';
+
+.comment-wrapper {
+  margin-top: 100px;
+  background-color: white;
+  padding-bottom: 30px;
+}
+.comments {
+  width: 50%;
+  margin: 20px auto;
+  padding: 40px 0;
+  .comment {
+    width: 100%;
+    margin-top: 30px;
+    .comment-upper {
+      position: relative;
+      a {
+        color: black;
+        position: absolute;
+        left: 50px;
+        top: 10px;
+      }
+    }
+    .comment-lower {
+      padding: 23px 20px;
+      line-height: 25px;
+      border-radius: 3px;
+      border: solid 1px $gray;
+    }
+  }
+}
+
+.comment-form-upper {
+  min-width: 600px;
+  margin: 0 auto;
+  width: 50%;
+  min-width: 300px;
+  display: flex;
+  p {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+.comment-form {
+  background-color: $light-white;
+  position: relative;
+  padding: 30px 10px 40px;
+  border: solid 1px $gray;
+  border-radius: 3px;
+  margin: 0 auto 20px;
+  width: 50%;
+
+
+  .comment-btn {
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    padding: 5px 13px;
+    color: white;
+    background-color: $light-blue;
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    bottom: 5px;
+  }
+}
+  textarea {
+    width: 100%;
+    resize: none;
+    border-radius: 3px;
+    height: 100px;
+    border-style: none;
+  }
+
+.recommend-login {
+  min-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+  border-top: solid 1px $gray;
+  background-color: $light-white;
+  padding: 30px;
+  .recommend-login-title {
+    font-size: 23px;
+    a {
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 4px;
+      display: block;
+      background-color: $light-blue;
+      width: 100px;
+      height: 35px;
+      margin: 35px auto;
+      padding-top: 10px;
+      &:hover {
+      background-color: $blue;
+      }
+    }
+  }
+  .recommend-login-sub {
+    font-size: 13px;
+    a {
+      color: $blue;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
