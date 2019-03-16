@@ -14,10 +14,9 @@
         <%= render partial: "posts", locals: {post: post} %>
       <% end %>
     </div>
-    <div class="page">
-      <%= paginate(@posts) %>
-    </div>
   </div>
 </div>
-
+<div class="page-wrapper">
+  <%= paginate(@posts) %>
+</div>
 

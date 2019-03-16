@@ -8,12 +8,15 @@ header {
 }
 
 .header-logo a {
+  text-decoration: none;
   font-family: 'Poiret One', cursive;
   font-weight: 800;
   letter-spacing: 3px;
-
   font-size: 28px;
   float: left;
+  &:hover {
+    color: white;
+  }
 }
 
 .header-menu  {
@@ -30,3 +33,38 @@ header {
     cursor: pointer;
   }
 }
+
+
+#menu-link {
+  width: 30px;
+  height: 30px;
+  color: $gray;
+  position: relative;
+  float: right;
+  display: inline-block;
+}
+.nav {
+  display: none;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  // top: -300px;
+  // transition: 0.3s ease-out;
+}
+.open {
+  display: block;
+  top: 20px;
+  right: 10px;
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  // top: 0;
+  // transition: 0.3s ease-out;
+  .nav-list {
+    padding: 200px;
+  background-color: white;
+
+  }
+}
+
+

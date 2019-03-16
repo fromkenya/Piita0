@@ -1,4 +1,68 @@
-<div class="form users-new">
+<div class="form">
+  <div class="container">
+    <div class="form-heading">
+      <h1><%= current_user.user_name %> アカウント</h1>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="form-body users-form">
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+
+       <div class="field">
+        <p>ユーザ名</p>
+        <%= f.text_field :user_name %>
+      </div>
+
+      <div class="field">
+        <p>プロフィール画像</p>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="field">
+        <p>メールアドレス</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+      </div>
+
+      <div class="field">
+        <p>変更後のパスワード</p>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+       <div class="field">
+        <p>現在のパスワード</p>
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions submit-wrapper">
+        <%= f.submit "Update" %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="form users-new">
   <div class="container">
     <div class="form-heading">
       <h1>編集</h1>
@@ -55,4 +119,4 @@
   </div>
 </div>
 
-
+ -->

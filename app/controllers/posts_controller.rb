@@ -11,12 +11,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(
+    @post = Post.new(
       title: post_params[:title],
       body: post_params[:body],
       user_id: current_user.id
       )
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    else
+      render new_post_path(@post)
+    end
   end
 
   def show

@@ -84,6 +84,7 @@
   .recommend-login-title {
     font-size: 23px;
     a {
+
       cursor: pointer;
       font-size: 14px;
       border-radius: 4px;
@@ -94,6 +95,8 @@
       margin: 35px auto;
       padding-top: 10px;
       &:hover {
+      text-decoration:  none;
+      color: white;
       background-color: $blue;
       }
     }

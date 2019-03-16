@@ -1,3 +1,9 @@
+  <% @post.errors.full_messages.each do |message| %>
+      <div class="form-error post-error">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+
   <div class="content">
     <%= form_for @post do |f| %>
       <div class="post-title">

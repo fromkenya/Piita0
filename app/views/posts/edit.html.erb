@@ -1,5 +1,74 @@
-<%= form_for @post do |f| %>
-<%= f.text_field :title %>
-<%= f.text_area :body %>
-<%= f.submit "編集" %>
-<% end %>
+<% @post.errors.full_messages.each do |message| %>
+    <div class="form-error post-error" >
+      <p><%= message %></p>
+    </div>
+  <% end %>
+
+
+  <div class="content">
+    <%= form_for @post do |f| %>
+      <div class="post-title">
+        <%= f.text_field :title, class: "title-area", placeholder: "タイトル" %>
+      </div>
+      <div class="wrapper" id='editor'>
+        <div class="editor-wrapper">
+          <div class="editor-header">本文</div>
+            <textarea class="editor" name="post[body]" v-model='input' debounce='100'><%= @post.body %></textarea>
+        </div>
+        <div class="preview-wrapper">
+          <div class="preview-header">プレビュー</div>
+            <div class="preview" v-html='input | marked'></div>
+        </div>
+      </div>
+    <%= f.submit "編集する", class: "post-btn"%>
+    <% end %>
+  </div>
+
+<script type="text/javascript">
+window.onload = function() {
+
+  new Vue({
+    el: '#editor',
+    data: {
+      input: '<%== j @post.body %>',
+    },
+    filters: {
+      marked: marked,
+    },
+  });
+};
+
+
+
+marked.setOptions({
+  renderer: new myMarked.Renderer(),
+  highlight: function(code) {
+    return require('highlight.js').highlightAuto(code).value;
+  },
+  pedantic: false,
+  gfm: true,
+  tables: true,
+  breaks: true,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false
+});
+
+marked.setOptions({
+  highlight: function(code, lang, callback) {
+    require('pygmentize-bundled') ({ lang: lang, format: 'html' }, code, function (err, result) {
+      callback(err, result.toString());
+    });
+  }
+});
+
+console.log(myMarked(markdownString));
+
+
+marked.setOptions({
+  sanitize: true,
+  breaks: true,
+});
+
+</script>
