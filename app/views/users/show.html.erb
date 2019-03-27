@@ -1,9 +1,11 @@
 <div class="user">
-  <div class="container">
-    <img src="<%= "#" %>">
-    <%= @user.user_name %>
+    <div class="profile">
+    <%= image_tag @user.avatar.url, class: "profile-image" %>
+    <div class="profile-name">
+      <%= @user.user_name %>
+    </div>
     <% if user_signed_in? && @user.id == current_user.id %>
-    <%= link_to "編集", edit_user_registration_path %>
+    <%= link_to "プロフィールを編集する", edit_user_registration_path %>
     <% end %>
   </div>
 </div>
@@ -12,12 +14,11 @@
   <div class="container">
     <div class="index">
       <% @posts.each do |post| %>
-        <%= render partial: '/posts/posts', locals: {post: post} %>
+        <%= render partial: "/posts/posts", locals: {post: post} %>
       <% end %>
     </div>
-     <div class="page">
-      <%= paginate(@posts) %>
-     </div>
   </div>
 </div>
-
+<div class="page-wrapper">
+  <%= paginate(@posts) %>
+</div>

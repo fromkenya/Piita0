@@ -1,5 +1,8 @@
 @import 'variables';
 
+/* ユーザーフォーム ================================ */
+
+
 .form {
   background-color: white;
   color: $blue;
@@ -36,12 +39,11 @@
   width: 100%;
   border-radius: 4px;
   margin-top: 20px;
-  &:hover {
+    &:hover {
     background-color: $blue;
-  }
+    }
   }
 }
-
 
 .form-error, .error-message {
   text-align: center;
@@ -51,3 +53,52 @@
     margin: 10px 0 15px 0;
   }
 }
+
+
+/* ユーザー詳細 ================================ */
+
+.profile {
+  // margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+    background-color: $white;
+    padding: 30px 0;
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+  }
+  .profile-name {
+    margin-top: 16px;
+    font-size: 28px;
+  }
+  a {
+    color: $dark-gray;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
