@@ -214,10 +214,10 @@
 .buttons {
   width: 100%;
   margin: 35px 0 50px;
+  display: flex;
   .like {
     text-align: center;
     width: 60%;
-    display: inline-block;
     padding: 8px;
     border: 1.5px solid $light-blue;
     border-radius: 3px;
@@ -226,16 +226,21 @@
     a {
       color: $light-blue;
       text-decoration: none;
+      display: block;
     }
   }
   .stock {
     text-align: center;
     width: 30%;
-    display: inline-block;
     padding: 8px;
     border: 1.5px solid #555;
     border-radius: 3px;
     background-color: #555;
+    a {
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
