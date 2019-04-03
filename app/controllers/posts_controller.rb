@@ -25,13 +25,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    post.update(post_params) if current_user.id == post.user.id
-    redirect_to post
+    @post.update(post_params) if current_user.id == post.user.id
+    redirect_to @post
   end
 
   def destroy
-    post.destroy if current_user.id == post.user.id
-    redirect_to post
+    @post.destroy if current_user.id == @post.user.id
+    redirect_to @post
   end
 
 
