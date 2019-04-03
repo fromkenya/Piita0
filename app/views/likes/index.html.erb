@@ -11,14 +11,15 @@
 </div>
 
 <ul class="post-menu">
-  <li class="active"><%= link_to "最近の記事", @user %>
-  <li><%= link_to "いいねした記事", user_likes_path(@user) %>
+  <li><%= link_to "最近の記事", @user %>
+  <li class="active"><%= link_to "いいねした記事", user_likes_path(@user) %>
 </ul>
 
 <div class="posts">
   <div class="container">
     <div class="index">
-      <% @posts.each do |post| %>
+      <% @likes.each do |like| %>
+        <% post = Post.find(like.post_id) %>
         <%= render partial: "/posts/posts", locals: {post: post} %>
       <% end %>
     </div>
@@ -26,5 +27,5 @@
 </div>
 
 <div class="page-wrapper">
-  <%= paginate(@posts) %>
+  <%= paginate(@likes) %>
 </div>

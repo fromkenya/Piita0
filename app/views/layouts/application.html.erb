@@ -14,25 +14,25 @@
     <header>
       <div class="container">
         <div class="header-logo">
-        <%= link_to "Piita", posts_path %>
+          <%= link_to "Piita", posts_path %>
         </div>
           <% if user_signed_in? %>
-          <ul class="header-menu">
-            <li><%= link_to "新規投稿", new_post_path %></li>
-            <li><%= link_to "ストック", "#" %></li>
-            <li><%= link_to "マイページ", user_path(current_user) %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path,  method: :delete %></li>
-          </ul>
+            <ul class="header-menu">
+              <li><%= link_to "新規投稿", new_post_path %></li>
+              <li><%= link_to "ストック", stocks_path %></li>
+              <li><%= link_to "マイページ", user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path,  method: :delete %></li>
+            </ul>
           <% else %>
-          <ul class="header-menu">
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-          </ul>
+            <ul class="header-menu">
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            </ul>
           <% end %>
       </div>
     </header>
+
     <div class="flash">
-    </div>
 
     <% if notice %>
         <div class="alert alert-info alert-dismissible" role="alert">
@@ -52,6 +52,7 @@
       <%= alert %>
     </div>
     <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

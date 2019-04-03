@@ -1,7 +1,7 @@
 <div class="post-item">
   <div class="post-left">
     <% if post.user.avatar.url %>
-    <%= image_tag post.user.avatar.url, size: "50x50" %>
+      <%= image_tag post.user.avatar.url, size: "50x50" %>
     <% end %>
   </div>
   <div class="post-right">
@@ -9,8 +9,7 @@
         <%= link_to post.title, post %>
       </div>
       <div class="post-below">
-        <p>by <span><%= link_to post.user.user_name, "/users/#{post.user_id}" %></span> <span><%= post.updated_at.strftime('%Y/%m/%d')  %></span> <%= fa_icon "thumbs-up", text:  Like.where(post_id: post.id).count %></p>
+        <p>by <span><%= link_to post.user.user_name, user_path(post.user_id) %></span> <span><%= post.updated_at.strftime('%Y/%m/%d')  %></span> <%= fa_icon "thumbs-up", text:  Like.where(post_id: post.id).count %></p>
       </div>
   </div>
 </div>
-

@@ -7,8 +7,8 @@
       <span class="date"><%= @post.updated_at.strftime('%Y年%-m月%-d日') %>に更新</span>
       <% if user_signed_in? && current_user.id == @post.user.id %>
         <div class="post-show-edit">
-        <%= link_to "編集", "/posts/#{@post.id}/edit" %>
-        <%= link_to "削除", "/posts/#{@post.id}", method: :delete %>
+          <%= link_to "編集", "/posts/#{@post.id}/edit" %>
+          <%= link_to "削除", "/posts/#{@post.id}", method: :delete %>
         </div>
       <% end %>
     </div>
@@ -16,37 +16,37 @@
       <%= @post.title %>
     </div>
 
-  <% if user_signed_in? %>
-    <div class="buttons">
-      <div class="like">
-        <% if Like.find_by(post_id: @post.id, user_id: current_user.id) %>
-          <%= link_to post_like_path(@post), method: :delete do %>
-            <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
-          <% end %>
-        <% else %>
-          <%= link_to post_likes_path(@post), method: :post do %>
-            <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="stock">
-        <% if Stock.find_by(post_id: @post.id, user_id: current_user.id) %>
-          <div class="stock-folder">
-            <%= link_to post_stock_path(@post), method: :delete do %>
-              <%= fa_icon "folder-o", class: "fa-lg" %>
-                <div class="check">
-                  <%= fa_icon "check" %>
-                </div>
+    <% if user_signed_in? %>
+      <div class="buttons">
+        <div class="like">
+          <% if Like.find_by(post_id: @post.id, user_id: current_user.id) %>
+            <%= link_to post_like_path(@post), method: :delete do %>
+              <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
             <% end %>
-          </div>
-        <% else %>
-          <%= link_to post_stocks_path(@post), method: :post do %>
-            <%= fa_icon "folder-open-o", class: "fa-lg" %>
+          <% else %>
+            <%= link_to post_likes_path(@post), method: :post do %>
+              <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="stock">
+          <% if Stock.find_by(post_id: @post.id, user_id: current_user.id) %>
+            <div class="stock-folder">
+              <%= link_to post_stock_path(@post), method: :delete do %>
+                <%= fa_icon "folder-o", class: "fa-lg" %>
+                  <div class="check">
+                    <%= fa_icon "check" %>
+                  </div>
+              <% end %>
+            </div>
+          <% else %>
+            <%= link_to post_stocks_path(@post), method: :post do %>
+              <%= fa_icon "folder-open-o", class: "fa-lg" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
     <div class="post-show-body">
       <p><%= markdown(@post.body).html_safe %></p>
@@ -71,24 +71,24 @@
   </div>
 
   <% if user_signed_in? %>
-  <div class="comment-form-upper">
-    <div class="commenter">
-      <%= image_tag current_user.avatar.url, size: '40x40' %>
-    </div>
-    <p>コメントを投稿する</p>
-  </div>
-  <div class="comment-form">
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :text, placeholder: "コメントを入力してください" %>
-      <%= f.submit "投稿", class: "comment-btn"%>
-    <% end %>
-  </div>
-  <% else %>
-    <div class="recommend-login">
-      <div class="recommend-login-title">あなたもコメントしてみませんか？
-      <%= link_to "ユーザ登録", new_user_registration_path %>
+    <div class="comment-form-upper">
+      <div class="commenter">
+        <%= image_tag current_user.avatar.url, size: '40x40' %>
       </div>
-      <div class="recommend-login-sub">すでにアカウントを持っている方は<%= link_to "ログイン", user_session_path %></div>
+      <p>コメントを投稿する</p>
     </div>
+    <div class="comment-form">
+      <%= form_for [@post, @comment] do |f| %>
+        <%= f.text_area :text, placeholder: "コメントを入力してください" %>
+        <%= f.submit "投稿", class: "comment-btn"%>
+      <% end %>
+    </div>
+  <% else %>
+      <div class="recommend-login">
+        <div class="recommend-login-title">あなたもコメントしてみませんか？
+          <%= link_to "ユーザ登録", new_user_registration_path %>
+        </div>
+        <div class="recommend-login-sub">すでにアカウントを持っている方は<%= link_to "ログイン", user_session_path %></div>
+      </div>
   <% end %>
 </div>
