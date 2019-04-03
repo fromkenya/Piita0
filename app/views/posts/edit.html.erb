@@ -1,28 +1,27 @@
 <% @post.errors.full_messages.each do |message| %>
-    <div class="form-error post-error" >
-      <p><%= message %></p>
-    </div>
-  <% end %>
-
-
-  <div class="content">
-    <%= form_for @post do |f| %>
-      <div class="post-title">
-        <%= f.text_field :title, class: "title-area", placeholder: "タイトル" %>
-      </div>
-      <div class="wrapper" id='editor'>
-        <div class="editor-wrapper">
-          <div class="editor-header">本文</div>
-            <textarea class="editor" name="post[body]" v-model='input' debounce='100'><%= @post.body %></textarea>
-        </div>
-        <div class="preview-wrapper">
-          <div class="preview-header">プレビュー</div>
-            <div class="preview" v-html='input | marked'></div>
-        </div>
-      </div>
-    <%= f.submit "編集する", class: "post-btn"%>
-    <% end %>
+  <div class="form-error post-error" >
+    <p><%= message %></p>
   </div>
+<% end %>
+
+<div class="content">
+  <%= form_for @post do |f| %>
+    <div class="post-title">
+      <%= f.text_field :title, class: "title-area", placeholder: "タイトル" %>
+    </div>
+    <div class="wrapper" id='editor'>
+      <div class="editor-wrapper">
+        <div class="editor-header">本文</div>
+          <textarea class="editor" name="post[body]" v-model='input' debounce='100'><%= @post.body %></textarea>
+      </div>
+      <div class="preview-wrapper">
+        <div class="preview-header">プレビュー</div>
+          <div class="preview" v-html='input | marked'></div>
+      </div>
+    </div>
+  <%= f.submit "編集する", class: "post-btn"%>
+  <% end %>
+</div>
 
 <script type="text/javascript">
 window.onload = function() {

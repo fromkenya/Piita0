@@ -41,6 +41,9 @@
       font-size: 13px;
       color: $dark-gray;
     }
+    span {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -69,6 +72,7 @@
   width: 100%;
   display: inline-block;
 }
+
 
 /* 投稿フォーム ================================ */
 
@@ -160,17 +164,21 @@
   min-width: 600px;
   background-color: white;
   margin: 30px auto;
-  width: 50%;
+  width: 870px;
   .post-content {
     padding: 30px;
     .post-show-upper {
       padding: 10px;
-      // display: flex;
-      height: 50px;
       width: 100%;
+      .date {
+        color: $dark-gray;
+        font-size: 15px;
+      }
       a {
+        display: inline-block;
         color: black;
-        margin: 10px;
+        margin-right: 20px;
+        margin-left: 5px;
         font-size: 18px;
       }
       .post-show-edit {
@@ -185,7 +193,7 @@
     .post-show-title {
       font-size: 40px;
       font-weight: 600;
-      margin: 40px 0 60px;
+      margin: 20px 0 60px;
     }
 
     .post-show-body {
@@ -199,15 +207,57 @@
   p {
   word-wrap: break-word;
   overflow-wrap : break-word;
-
-  // color: white;
   }
 }
 
+/* ボタン ================================ */
 
+.buttons {
+  width: 100%;
+  margin: 35px 0 50px;
+  display: flex;
+  .like {
+    text-align: center;
+    width: 60%;
+    padding: 8px;
+    border: 1.5px solid $light-blue;
+    border-radius: 3px;
+    margin-right: 20px;
+    color: $light-blue;
+    a {
+      color: $light-blue;
+      text-decoration: none;
+      display: block;
+    }
+  }
+  .stock {
+    text-align: center;
+    width: 30%;
+    padding: 8px;
+    border: 1.5px solid #555;
+    border-radius: 3px;
+    background-color: #555;
+    a {
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
 
-
-
+.stock-folder {
+  position: relative;
+  .fa-folder-o {
+    background-color: white;
+    color: white;
+  }
+  .check {
+  position: absolute;
+  top: 0;
+  left: 105px;
+  color: green;
+  }
+}
 
 
 

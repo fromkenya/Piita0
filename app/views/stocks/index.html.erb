@@ -1,0 +1,14 @@
+<div class="posts">
+  <div class="container">
+    <div class="index">
+      <% @stocks.each do |stock| %>
+        <% post = Post.find(stock.post_id) %>
+        <%= render partial: "/posts/posts", locals: {post: post} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrapper">
+  <%= paginate(@stocks) %>
+</div>
