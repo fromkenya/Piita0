@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   resources :stocks, only: [:index]
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
     resources :stocks, only: [:create, :destroy]
   end

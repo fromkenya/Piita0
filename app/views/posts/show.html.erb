@@ -7,8 +7,8 @@
       <span class="date"><%= @post.updated_at.strftime('%Y年%-m月%-d日') %>に更新</span>
       <% if user_signed_in? && current_user.id == @post.user.id %>
         <div class="post-show-edit">
-          <%= link_to "編集", "/posts/#{@post.id}/edit" %>
-          <%= link_to "削除", "/posts/#{@post.id}", method: :delete %>
+          <%= link_to "編集", edit_post_path(@post) %>
+          <%= link_to "削除", post_path, method: :delete, data: { confirm: 'この記事を削除してよろしいですか?' } %>
         </div>
       <% end %>
     </div>
@@ -60,8 +60,15 @@
     <% @post.comments.each do |comment| %>
       <div class="comment">
         <div class="comment-upper">
+        <div class="comment-upper-left">
           <%= image_tag comment.user.avatar.url, size: '40x40'  %>
           <%= link_to comment.user.user_name, user_path(@post.user)   %>
+        </div>
+          <% if user_signed_in? && current_user.id == comment.user.id %>
+              <div class="comment-upper-right">
+                <%= link_to "削除", post_comment_path(@post, comment), method: :delete, data: { confirm: '削除してよろしいですか?' } %>
+              </div>
+          <% end %>
         </div>
         <div class="comment-lower">
           <%= comment.text %>

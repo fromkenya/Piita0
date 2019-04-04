@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @user = User.find(params[:user_id])
     @likes = @user.likes.order(id: :desc).page(params[:page]).per(15)

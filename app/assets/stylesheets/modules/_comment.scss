@@ -13,12 +13,19 @@
     width: 100%;
     margin-top: 30px;
     .comment-upper {
-      position: relative;
-      a {
+      display: flex;
+      justify-content: space-between;
+      .comment-upper-right {
+        margin-right: 10px;
+        margin-top: 10px;
+        a {
+        color: $dark-gray;
+        font-size: 12px;
+       }
+      }
+      .comment-upper-left a {
         color: black;
-        position: absolute;
-        left: 50px;
-        top: 10px;
+        margin-left: 5px;
       }
     }
     .comment-lower {
