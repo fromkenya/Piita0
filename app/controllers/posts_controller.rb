@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params) if current_user.id == post.user.id
+    @post.update(post_params) if current_user.id == @post.user.id
     redirect_to @post
   end
 

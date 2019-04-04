@@ -68,7 +68,10 @@ gem 'kaminari'
 gem 'devise'
 gem 'carrierwave'
 gem 'redcarpet'
+gem 'rouge'
 gem 'coderay'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+
+
