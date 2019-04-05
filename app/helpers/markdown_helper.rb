@@ -7,7 +7,7 @@ end
 module MarkdownHelper
   def markdown(text)
       options = {
-          filter_html:     true,
+          # filter_html:     true,
           hard_wrap:       true,
           space_after_headers: true
       }

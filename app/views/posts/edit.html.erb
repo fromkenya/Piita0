@@ -24,50 +24,20 @@
 </div>
 
 <script type="text/javascript">
-window.onload = function() {
-
-  new Vue({
-    el: '#editor',
-    data: {
-      input: '<%== j @post.body %>',
-    },
-    filters: {
-      marked: marked,
-    },
-  });
-};
-
-
-
-marked.setOptions({
-  renderer: new myMarked.Renderer(),
-  highlight: function(code) {
-    return require('highlight.js').highlightAuto(code).value;
-  },
-  pedantic: false,
-  gfm: true,
-  tables: true,
-  breaks: true,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false
-});
-
-marked.setOptions({
-  highlight: function(code, lang, callback) {
-    require('pygmentize-bundled') ({ lang: lang, format: 'html' }, code, function (err, result) {
-      callback(err, result.toString());
+  window.onload = function() {
+    new Vue({
+      el: '#editor',
+      data: {
+        input: '<%== j @post.body %>',
+      },
+      filters: {
+        marked: marked,
+      },
     });
-  }
-});
+  };
 
-console.log(myMarked(markdownString));
-
-
-marked.setOptions({
-  sanitize: true,
-  breaks: true,
-});
-
+  marked.setOptions({
+    sanitize: true,
+    breaks: true,
+  });
 </script>

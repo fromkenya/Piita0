@@ -25,7 +25,6 @@
 
 <script type="text/javascript">
 window.onload = function() {
-
   new Vue({
     el: '#editor',
     data: {
@@ -37,26 +36,9 @@ window.onload = function() {
   });
 };
 
-// var myMarked = require('marked');
-
-// myMarked.setOptions({
-//   renderer: new myMarked.Renderer(),
-//   highlight: function(code) {
-//     return require('highlight.js').highlightAuto(code).value;
-//   },
-//   pedantic: false,
-//   gfm: true,
-//   tables: true,
-//   breaks: true,
-//   sanitize: true,
-//   smartLists: true,
-//   smartypants: false,
-//   xhtml: false
-// });
 marked.setOptions({
   sanitize: true,
   breaks: true,
 });
-
 </script>
 

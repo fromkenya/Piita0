@@ -137,6 +137,9 @@
   padding: 10px;
   background-color: white;
   overflow: scroll;
+  a {
+    color: blue;
+  }
 }
 
 .post-btn {
@@ -195,18 +198,20 @@
       font-weight: 600;
       margin: 20px 0 60px;
     }
-
     .post-show-body {
-      letter-spacing: 2px;
-      // line-height: 20px;
+      h1 ,h2, h3 {
+      font-weight: bold;
+      margin: 70px 0 0;
+      }
+      p {
+      line-height: 30px;
+      word-wrap: break-word;
+      overflow-wrap : break-word;
+      }
+      a {
+        color: blue;
+      }
     }
-  }
-}
-
-.post-show-body {
-  p {
-  word-wrap: break-word;
-  overflow-wrap : break-word;
   }
 }
 
