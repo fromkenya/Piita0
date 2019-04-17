@@ -1,24 +1,18 @@
-# README
+# Piita
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+初めての自作ポートフォリオとして、プログラマのための技術共有サービス「Qiita」のコピーサイトを作成しました。
 
-Things you may want to cover:
+開発環境 ruby/Ruby on Rails/javascript/MySQL/AWS/EC2
 
-* Ruby version
 
-* System dependencies
+# 機能一覧
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・markdownによる記事投稿・編集(redcarpet)
+・コードのシンタックスハイライト(rouge)
+・記事作成時のリアルタイムプレビュー(vue.js/marked.js)
+・コメント投稿
+・いいね
+・お気に入り(ストック)登録
+・ユーザー登録・編集・認証(devise)
+・アバター画像アップロード(carrierwave)
+・ページネーション(kaminari)

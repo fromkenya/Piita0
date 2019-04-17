@@ -32,6 +32,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    @post.
     redirect_to @post
   end
 
