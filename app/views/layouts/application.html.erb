@@ -3,19 +3,26 @@
   <head>
     <title>Piita</title>
     <%= csrf_meta_tags %>
+    <!-- グーグルフォントの「poiret one」を読み込み -->
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <!-- application.cssを読み込み -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- application.jsを読み込み -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- vue.jsを読み込み -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.js'></script>
+    <!-- marked.jsを読み込み -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js'></script>
   </head>
 
   <body>
     <header>
       <div class="container">
+        <!-- ヘッダーロゴを表示 -->
         <div class="header-logo">
           <%= link_to "Piita", posts_path %>
         </div>
+          <!-- ユーザがログインしていれば「新規投稿」「ストック」「マイページ」「ログアウト」を表示、していなければ「新規登録」「ログイン」を表示 -->
           <% if user_signed_in? %>
             <ul class="header-menu">
               <li><%= link_to "新規投稿", new_post_path %></li>
@@ -33,26 +40,29 @@
     </header>
 
     <div class="flash">
-
-    <% if notice %>
-        <div class="alert alert-info alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert">
+      <!-- フラッシュメッセージ(notice)があれば表示 -->
+      <% if notice %>
+        <div class="alert alert-info alert-dismissible"   role="alert">
+          <button type="button" class="close"   data-dismiss="alert">
             <span aria-hidden="true">&times;</span>
             <span class="sr-only">close</span>
           </button>
           <%= notice %>
         </div>
-    <% end %>
-    <% if alert %>
-    <div class="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span>
-        <span class="sr-only">close</span>
-      </button>
-      <%= alert %>
+      <% end %>
+      <% if alert %>
+      <!-- フラッシュメッセージ(alert)があれば表示 -->
+        <div class="alert alert-danger alert-dismissible"   role="alert">
+          <button type="button" class="close" data-dismiss="  alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">close</span>
+          </button>
+          <%= alert %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-    </div>
+
+    <!-- 別途作成されたビューファイルをこのyieldに埋め込み表示 -->
     <%= yield %>
   </body>
 </html>

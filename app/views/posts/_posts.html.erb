@@ -1,13 +1,16 @@
 <div class="post-item">
   <div class="post-left">
-    <% if post.user.avatar.url %>
+    <!-- 投稿者のアバターを表示(デフォルトではavatarカラムは空なので、エラーをださないようにif文を置く) -->
+    <% if post.user.avatar%>
       <%= image_tag post.user.avatar.url, size: "50x50" %>
     <% end %>
   </div>
   <div class="post-right">
+      <!-- 記事タイトルを表示 -->
       <div class="post-title">
         <%= link_to post.title, post %>
       </div>
+      <!-- 投稿者名、更新日時、いいね数を表示 -->
       <div class="post-below">
         <p>by <span><%= link_to post.user.user_name, user_path(post.user_id) %></span> <span><%= post.updated_at.strftime('%Y/%m/%d')  %></span> <%= fa_icon "thumbs-up", text:  Like.where(post_id: post.id).count %></p>
       </div>

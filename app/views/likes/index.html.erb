@@ -4,6 +4,7 @@
     <div class="profile-name">
       <%= @user.user_name %>
     </div>
+    <!-- ユーザがログインしており、なおかつユーザ詳細ページのユーザとログイン中のユーザが一致している場合のみプロフィール編集リンクを表示 -->
     <% if user_signed_in? && @user.id == current_user.id %>
       <%= link_to "プロフィールを編集する", edit_user_registration_path %>
     <% end %>
@@ -18,6 +19,7 @@
 <div class="posts">
   <div class="container">
     <div class="index">
+      <!-- 配列@likesから各likeインスタンスを順に取り出し、そのlikeに紐ついたpostインスタンスを変数postに代入、そして部分テンプレートの_postsファイルに変数postとして渡し、表示する -->
       <% @likes.each do |like| %>
         <% post = Post.find(like.post_id) %>
         <%= render partial: "/posts/posts", locals: {post: post} %>
@@ -26,6 +28,7 @@
   </div>
 </div>
 
+<!-- ページネーションを表示 -->
 <div class="page-wrapper">
   <%= paginate(@likes) %>
 </div>

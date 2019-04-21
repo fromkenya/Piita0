@@ -5,7 +5,7 @@
 開発環境 ruby/Ruby on Rails/javascript/MySQL/AWS/EC2
 
 
-# 機能一覧
+## 機能一覧
 
 ・markdownによる記事投稿・編集(redcarpet)
 ・コードのシンタックスハイライト(rouge)

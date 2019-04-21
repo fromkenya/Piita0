@@ -1,6 +1,7 @@
 <div class="posts">
   <div class="container">
     <div class="index">
+      <!-- 配列@stocksから各stockインスタンスを順に取り出し、そのstockに紐ついたpostインスタンスを変数postに代入、そして部分テンプレートの_postsファイルに変数postとして渡し、表示する -->
       <% @stocks.each do |stock| %>
         <% post = Post.find(stock.post_id) %>
         <%= render partial: "/posts/posts", locals: {post: post} %>
@@ -9,6 +10,7 @@
   </div>
 </div>
 
+<!-- ページネーションを表示 -->
 <div class="page-wrapper">
   <%= paginate(@stocks) %>
 </div>
