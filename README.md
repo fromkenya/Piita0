@@ -2,7 +2,7 @@
 
 初めての自作ポートフォリオとして、プログラマのための技術共有サービス「Qiita」のコピーサイトを作成しました。  
 仮アカウント  
-email: sample@sample.com
+email: sample@sample.com  
 pass: sample  
 
 開発環境 ruby/Ruby on Rails/javascript/MySQL/AWS/EC2
