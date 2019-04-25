@@ -22,10 +22,12 @@
     <% if user_signed_in? %>
       <div class="buttons">
         <div class="like">
+          <!-- カーレントユーザが既にいいねしていれば、いいねボタンを押すことでいいねが取り消される -->
           <% if Like.find_by(post_id: @post.id, user_id: current_user.id) %>
             <%= link_to post_like_path(@post), method: :delete do %>
               <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
             <% end %>
+          <!-- カーレントユーザがまだいいねをしていないなら、いいねボタンを押すことでいいねが追加される -->
           <% else %>
             <%= link_to post_likes_path(@post), method: :post do %>
               <%= fa_icon "thumbs-up", class: "fa-lg", text: Like.where(post_id: @post.id).count %>
@@ -33,17 +35,21 @@
           <% end %>
         </div>
         <div class="stock">
+          <!-- カーレントユーザが既にストックしていれば、ストックボタンを押すことでストックが取り消される -->
           <% if Stock.find_by(post_id: @post.id, user_id: current_user.id) %>
             <div class="stock-folder">
               <%= link_to post_stock_path(@post), method: :delete do %>
+                <!-- フォルダにチェックマークがついたアイコンが表示されている -->
                 <%= fa_icon "folder-o", class: "fa-lg" %>
                   <div class="check">
                     <%= fa_icon "check" %>
                   </div>
               <% end %>
             </div>
+          <!-- カーレントユーザがまだストックをしていないなら、ストックボタンを押すことでストックが追加される -->
           <% else %>
             <%= link_to post_stocks_path(@post), method: :post do %>
+              <!-- フォルダが空のアイコンが表示されている -->
               <%= fa_icon "folder-open-o", class: "fa-lg" %>
             <% end %>
           <% end %>
