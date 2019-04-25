@@ -40,7 +40,6 @@ pass: sample
 |avatar|string|
 
 #### Association
-- has_one_attached :avatar
 - has_many :posts
 - has_many :comments
 - has_many :stocks
