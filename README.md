@@ -2,6 +2,7 @@
 
 初めての自作ポートフォリオとして、プログラマのための技術共有サービス「Qiita」のコピーサイトを作成しました。  
 仮アカウント  
+url: http://3.92.230.219  
 email: sample@sample.com  
 pass: sample  
 
